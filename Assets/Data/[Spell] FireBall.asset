@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ef66ff80fbe4a54a89a4ea96054fb68, type: 3}
   m_Name: '[Spell] FireBall'
   m_EditorClassIdentifier: 
-  nom: 
-  description: 
-  value: 0
-  manaCost: 0
-  cooldown: 0
-  duration: 0
-  speed: 0
-  radius: 0
+  nom: FireBall
+  description: Throw a fireball forward
+  value: 30
+  manaCost: 50
+  cooldown: 30
+  duration: 5
+  speed: 10
+  radius: 5
   element: 0
