@@ -1,4 +1,3 @@
-using System;
 using Gameplay;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,12 +12,12 @@ namespace Env
 
         private void OnEnable()
         {
-            player.GetLifeComponent().OnPlayerLifeChanged += UpdateLifeGUI;
+            player.GetLifeComponent().OnLifeChanged += UpdateLifeGUI;
         }
 
         private void OnDisable()
         {
-            player.GetLifeComponent().OnPlayerLifeChanged -= UpdateLifeGUI;
+            player.GetLifeComponent().OnLifeChanged -= UpdateLifeGUI;
         }
 
         private void UpdateLifeGUI(int life)

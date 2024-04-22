@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 5037906695234765654}
   - component: {fileID: 7362528089475056673}
   - component: {fileID: 1572103763370219033}
+  - component: {fileID: 7099563428730692416}
+  - component: {fileID: 4196443844366716048}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -47,7 +49,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isHumanPlayer: 1
-  character: {fileID: 1572103763370219033}
 --- !u!114 &1572103763370219033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,6 +62,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
+--- !u!114 &7099563428730692416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2973100304137934598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55a62417571a436c9fbd8ca7462163d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4196443844366716048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2973100304137934598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d68a62bf26420ba2509e9b602496e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellSpawn: {fileID: 0}
+  spells:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &5225985143504404918
 GameObject:
   m_ObjectHideFlags: 0
