@@ -1,14 +1,20 @@
+using System;
 using Gameplay;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Env
 {
+    [RequireComponent(typeof(Slider))]
     public class LifeBar : MonoBehaviour
     {
-        
-        [SerializeField] private Slider lifeSlider;
+        private Slider _lifeSlider;
         [SerializeField] private Player player;
+
+        private void Awake()
+        {
+            _lifeSlider = GetComponent<Slider>();
+        }
 
         private void OnEnable()
         {
@@ -22,7 +28,7 @@ namespace Env
 
         private void UpdateLifeGUI(int life)
         {
-            lifeSlider.value = life / 100f;
+            _lifeSlider.value = life / 100f;
         }
     }
 }

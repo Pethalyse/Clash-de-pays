@@ -4,24 +4,30 @@ using UnityEngine.UI;
 
 namespace Env
 {
+    [RequireComponent(typeof(Slider))]
     public class ManaBar : MonoBehaviour
     {
-        [SerializeField] private Slider manaSlider;
+        private Slider _manaSlider;
         [SerializeField] private Player player;
 
+        private void Awake()
+        {
+            _manaSlider = GetComponent<Slider>();
+        }
+        
         private void OnEnable()
         {
-            player.GetSpellComponent().OnManaChanged += UpdateManaGUI;
+            //player.GetSpellComponent().OnManaChanged += UpdateManaGUI;
         }
 
         private void OnDisable()
         {
-            player.GetSpellComponent().OnManaChanged -= UpdateManaGUI;
+            //layer.GetSpellComponent().OnManaChanged -= UpdateManaGUI;
         }
 
         private void UpdateManaGUI(int mana)
         {
-            manaSlider.value = mana / 100f;
+            _manaSlider.value = mana / 100f;
         }
     }
 }

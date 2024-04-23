@@ -36,7 +36,8 @@ namespace Gameplay.Components
             _cooldownSpells = new Dictionary<Spell, float>();
             foreach (var spell in spells)
             {
-                _cooldownSpells.Add(spell, 0f);
+                if(spell != null) 
+                    _cooldownSpells.Add(spell, 0f);
             }
         }
 
@@ -75,6 +76,7 @@ namespace Gameplay.Components
 
         public void ChangeIndexSpellWithIndex(int index)
         {
+            _manaActual -= 10;
             if (index is >= 0 and <= 4)
             {
                 _currentIndexSpell = index;
