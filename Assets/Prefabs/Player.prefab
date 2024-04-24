@@ -66,8 +66,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   dashForce: 100
-  jumpForce: 6
-  _timerDashCooldown: 0
+  jumpForce: 4.5
   groundCheck: {fileID: 1846536445897319236}
 --- !u!114 &7099563428730692416
 MonoBehaviour:

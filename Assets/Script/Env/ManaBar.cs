@@ -1,33 +1,15 @@
-﻿using Gameplay;
-using UnityEngine;
-using UnityEngine.UI;
-
-namespace Env
+﻿namespace Env
 {
-    [RequireComponent(typeof(Slider))]
-    public class ManaBar : MonoBehaviour
+    public class ManaBar : Bar
     {
-        private Slider _manaSlider;
-        [SerializeField] private Player player;
-
-        private void Awake()
-        {
-            _manaSlider = GetComponent<Slider>();
-        }
-        
         private void OnEnable()
         {
-            //player.GetSpellComponent().OnManaChanged += UpdateManaGUI;
+            player.GetSpellComponent().OnManaChanged += UpdateBarGUI;
         }
 
         private void OnDisable()
         {
-            //layer.GetSpellComponent().OnManaChanged -= UpdateManaGUI;
-        }
-
-        private void UpdateManaGUI(int mana)
-        {
-            _manaSlider.value = mana / 100f;
+            player.GetSpellComponent().OnManaChanged -= UpdateBarGUI;
         }
     }
 }

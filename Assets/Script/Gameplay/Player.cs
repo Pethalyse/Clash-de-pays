@@ -1,4 +1,3 @@
-using System;
 using Gameplay.Components;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -36,7 +35,7 @@ namespace Gameplay
             _moveAction.Enable();
             
             _jumpAction = _playerInputs.Player.Jump;
-            _jumpAction.performed += OnJump;
+            _jumpAction.performed += JumpActionOnPerformed;
             _jumpAction.Enable();
             
             _lookAction = _playerInputs.Player.Look;
@@ -54,7 +53,7 @@ namespace Gameplay
             _moveAction.Disable();
             _lookAction.Disable();
             _fireAction.Disable();
-            _jumpAction.performed -= OnJump;
+            _jumpAction.performed -= JumpActionOnPerformed;
             _jumpAction.Disable();
             _dashAction.Disable();
         }
@@ -94,30 +93,29 @@ namespace Gameplay
                 var lookDir = _lookAction.ReadValue<Vector2>();
                 _movementComponent.Look(lookDir);
                 
+                //Clique avant puis bouger marche pas trop sur les cotés AVEC LA MANETTE
                 var dashDir = _dashAction.ReadValue<float>();
                 if(dashDir > 0 && moveDir != Vector2.zero)
                     _movementComponent.Dash(moveDir);
-
-                if (dashDir > 0)
-                {
-                    _spellComponent.ChangeIndexSpellWithIndex(4);
-                }
         }
         
-        private void OnJump(InputAction.CallbackContext context)
+        private void JumpActionOnPerformed(InputAction.CallbackContext context)
         {
             if(isHumanPlayer)
                 _movementComponent.Jump();
         }
-
+        
         public LifeComponent GetLifeComponent()
         {
             return _lifeComponent;
         }
-        
         public SpellComponent GetSpellComponent()
         {
             return _spellComponent;
+        }
+        public MovementComponent GetMovementComponent()
+        {
+            return _movementComponent;
         }
     }
 }

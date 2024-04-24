@@ -12,11 +12,11 @@ namespace Gameplay.Components
             set
             {
                 _life = value;
-                OnLifeChanged?.Invoke(_life);
+                OnLifeChanged?.Invoke(_lifeMax,_life);
             }
         }
 
-        public delegate void OnLifeChangedDelegate(int life);
+        public delegate void OnLifeChangedDelegate(int lifeMax,int life);
         public event OnLifeChangedDelegate OnLifeChanged;
 
         private void Start()
@@ -30,7 +30,6 @@ namespace Gameplay.Components
             if (Life <= 0)
                 Die();
         }
-
         public void Heal(int heal)
         {
             Life += heal;

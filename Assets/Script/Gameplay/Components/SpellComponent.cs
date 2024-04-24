@@ -11,19 +11,18 @@ namespace Gameplay.Components
         private int _regenMana = 2;
         private float _timeManaRegen;
         private const int HowManySecondsForRegenMana = 1;
+        public delegate void OnManaChangedDelegate(int maxMana,int mana);
+        public event OnManaChangedDelegate OnManaChanged;
         private int ManaActual
         {
             get => _manaActual;
             set
             {
                 _manaActual = value;
-                OnManaChanged?.Invoke(_manaActual);
+                OnManaChanged?.Invoke(_manaMax,_manaActual);
             }
         }
         
-        public delegate void OnManaChangedDelegate(int mana);
-        public event OnManaChangedDelegate OnManaChanged;
-
         [SerializeField] private Transform spellSpawn;
 
         private int _currentIndexSpell;
@@ -56,7 +55,7 @@ namespace Gameplay.Components
                 AddMana(_regenMana);
                 _timeManaRegen -= HowManySecondsForRegenMana;
         }
-
+        
         private void UpdateCooldownSpells()
         {
             foreach (var (spell, cd) in _cooldownSpells)
@@ -82,7 +81,6 @@ namespace Gameplay.Components
                 _currentIndexSpell = index;
             }
         }
-
         public void ChangeIndexSpellScroll(bool upOrDown)
         {
             if (upOrDown)
@@ -90,7 +88,6 @@ namespace Gameplay.Components
             else
                 ChangeIndexSpellWithIndex(_currentIndexSpell - 1);
         }
-
         private void Cast()
         {
             var spell = spells[_currentIndexSpell];
@@ -100,13 +97,12 @@ namespace Gameplay.Components
                 SetInCooldown(spell);
                 RemoveMana(spell.GetManaCost());
         }
-
         private void SetInCooldown(Spell spell)
         {
             _cooldownSpells[spell] = spell.GetCooldown();
         }
 
-        private void RemoveMana(int manaMinus)
+        public void RemoveMana(int manaMinus)
         {
             ManaActual -= manaMinus;
 

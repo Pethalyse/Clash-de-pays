@@ -1,12 +1,13 @@
 using Gameplay;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Manager
 {
     public class GameManager : MonoBehaviour
     {
         public static GameManager Instance;
-        private Player _mainPlayer;
+        [SerializeField] private Player mainPlayer;
         [SerializeField] private Player playerPrefab;
 
         private void Awake()
@@ -21,11 +22,16 @@ namespace Manager
 
         private void StartNewGame()
         {
-            if (_mainPlayer != null)
+            if (mainPlayer != null)
             {
-                Destroy(_mainPlayer);
+                Destroy(mainPlayer);
             }
-            _mainPlayer = Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
+            mainPlayer = Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
+        }
+
+        public Player GetMainPlayer()
+        {
+            return mainPlayer;
         }
     }
 }

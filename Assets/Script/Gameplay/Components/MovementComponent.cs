@@ -15,8 +15,21 @@ namespace Gameplay.Components
         [SerializeField] private float jumpForce;
         private bool _isGrounded;
         private bool _canDash;
-        private float _dashCooldown = 3f;
+        private const float DashCooldown = 3f;
         private float _timerDashCooldown;
+        public delegate void OnTimerDashCooldownDelegate(float maxTimer,float timer);
+        public event OnTimerDashCooldownDelegate OnTimerDashCooldownChanged;
+
+        private float TimerDashCooldown
+        {
+            get => _timerDashCooldown;
+            set
+            {
+                _timerDashCooldown = value;
+                OnTimerDashCooldownChanged?.Invoke(DashCooldown,_timerDashCooldown);
+                
+            }
+        }
 
         private LayerMask _groundLayerMask;
         [SerializeField] private Transform groundCheck;
@@ -32,10 +45,10 @@ namespace Gameplay.Components
 
         private void Update()
         {
-            if(_timerDashCooldown > 0 && !_canDash)
-                _timerDashCooldown -= Time.deltaTime;
+            if(TimerDashCooldown > 0 && !_canDash)
+                TimerDashCooldown -= Time.deltaTime;
 
-            if (_timerDashCooldown <= 0)
+            if (TimerDashCooldown <= 0)
                 ChangeCanDash(true);
 
         }
@@ -54,7 +67,7 @@ namespace Gameplay.Components
             if (!_canDash) return;
                 AddForceToBody(direction, dashForce);
                 ChangeCanDash(false);
-                _timerDashCooldown = _dashCooldown;
+                TimerDashCooldown = DashCooldown;
         }
 
         private void ChangeCanDash(bool dash)
