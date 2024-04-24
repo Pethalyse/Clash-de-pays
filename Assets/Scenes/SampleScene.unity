@@ -1251,9 +1251,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1517,7 +1517,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 726199158}
   text: {fileID: 1500475380}
-  player: {fileID: 154678059}
 --- !u!1 &2007930861
 GameObject:
   m_ObjectHideFlags: 0
