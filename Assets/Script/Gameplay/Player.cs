@@ -42,16 +42,17 @@ namespace Gameplay
             _lookAction.Enable();
             
             _fireAction = _playerInputs.Player.Fire;
+            _fireAction.performed += FireActionOnPerformed;
             _fireAction.Enable();
             
             _dashAction = _playerInputs.Player.Dash;
             _dashAction.Enable();
         }
-
         private void OnDisable()
         {
             _moveAction.Disable();
             _lookAction.Disable();
+            _fireAction.performed -= FireActionOnPerformed;
             _fireAction.Disable();
             _jumpAction.performed -= JumpActionOnPerformed;
             _jumpAction.Disable();
@@ -104,6 +105,13 @@ namespace Gameplay
             if(isHumanPlayer)
                 _movementComponent.Jump();
         }
+        
+        private void FireActionOnPerformed(InputAction.CallbackContext obj)
+        {
+            if(isHumanPlayer)
+                _spellComponent.Cast();
+        }
+
         
         public LifeComponent GetLifeComponent()
         {

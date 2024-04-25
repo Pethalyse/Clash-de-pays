@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Gameplay.Spells;
+using JetBrains.Annotations;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Gameplay.Components
@@ -58,17 +61,18 @@ namespace Gameplay.Components
         
         private void UpdateCooldownSpells()
         {
-            foreach (var (spell, cd) in _cooldownSpells)
+            var clone = new Dictionary<Spell, float>(_cooldownSpells);
+            foreach (var (spell, cd) in clone)
             {
                 if (!(cd > 0)) continue;
 
-                var cooldown = _cooldownSpells[spell];
+                var cooldown = GetCooldownOfSpell(spell);
                 
                 cooldown -= Time.deltaTime;
                 if (cooldown < 0f)
                     cooldown = 0f;
                 
-                _cooldownSpells[spell] = cooldown;
+                SetInCooldown(spell, cooldown);
 
             }
         }
@@ -88,18 +92,19 @@ namespace Gameplay.Components
             else
                 ChangeIndexSpellWithIndex(_currentIndexSpell - 1);
         }
-        private void Cast()
+        public void Cast()
         {
-            var spell = spells[_currentIndexSpell];
-            if (_cooldownSpells[spell] != 0f) return;
-            
-                Instantiate(spell, spellSpawn);
-                SetInCooldown(spell);
-                RemoveMana(spell.GetManaCost());
+            var spell = GetSpellFromIndex(_currentIndexSpell);
+            if(spell == null) return;
+                if (GetCooldownOfSpell(spell) != 0f) return;
+                if (ManaActual < spell.GetManaCost()) return;
+                    Instantiate(spell, spellSpawn.position, spellSpawn.rotation);
+                    SetInCooldown(spell, spell.GetCooldown());
+                    RemoveMana(spell.GetManaCost());
         }
-        private void SetInCooldown(Spell spell)
+        private void SetInCooldown(Spell spell, float cooldown)
         {
-            _cooldownSpells[spell] = spell.GetCooldown();
+            _cooldownSpells[spell] = cooldown;
         }
 
         public void RemoveMana(int manaMinus)
@@ -116,6 +121,26 @@ namespace Gameplay.Components
 
             if (ManaActual > _manaMax)
                 ManaActual = _manaMax;
+        }
+        
+        [CanBeNull]
+        public Spell GetSpellFromIndex(int index)
+        {
+            if (index is >= 0 and <= 4)
+            {
+                return spells[index];
+            }
+
+            throw new Exception("Spell index not possible !");
+
+        }
+
+        public float GetCooldownOfSpell(Spell spell)
+        {
+            if (_cooldownSpells.TryGetValue(spell, out var ofSpell))
+                return ofSpell;
+            
+            throw new Exception("Spell not contain !");
         }
     }
 }

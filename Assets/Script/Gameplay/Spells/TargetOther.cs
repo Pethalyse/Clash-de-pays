@@ -1,10 +1,11 @@
 ﻿using System;
+using UnityEditor.UIElements;
 using UnityEngine;
 
 namespace Gameplay.Spells
 {
     public abstract class TargetOther : Spell
     {
-        protected abstract void OnCollisionEnter(Collision other);
+        protected abstract void OnTriggerEnter(Collider other);
     }
 }

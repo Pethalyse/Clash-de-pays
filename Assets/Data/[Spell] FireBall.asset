@@ -19,5 +19,5 @@ MonoBehaviour:
   cooldown: 30
   duration: 5
   speed: 10
-  radius: 5
+  radius: 0.5
   element: 0

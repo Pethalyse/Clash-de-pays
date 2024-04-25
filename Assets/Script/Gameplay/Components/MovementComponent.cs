@@ -13,6 +13,7 @@ namespace Gameplay.Components
         [SerializeField] private float speed;
         [SerializeField] private float dashForce;
         [SerializeField] private float jumpForce;
+        [SerializeField] private float rotationSpeed; 
         private bool _isGrounded;
         private bool _canDash;
         private const float DashCooldown = 3f;
@@ -60,6 +61,7 @@ namespace Gameplay.Components
 
         public void Move(Vector2 direction)
         {
+            direction.Normalize();
             AddForceToBody(direction, speed);
         }
         public void Dash(Vector2 direction)
@@ -77,20 +79,21 @@ namespace Gameplay.Components
 
         private void AddForceToBody(Vector2 direction, float force)
         {
-            var velocity = _body.velocity;
-            velocity.x = force * direction.x;
-            velocity.z = force * direction.y;
-            _body.velocity = velocity;
+            var velZ = transform.forward * (force * direction.y);
+            var velX = transform.right * (force * direction.x);
+            var vel = velX + velZ;
+            vel.y = _body.velocity.y;
+            _body.velocity = vel;
         }
         
         public void Look(Vector2 direction)
         {
-            
+            _body.rotation = Quaternion.Euler(_body.rotation.eulerAngles + new Vector3(0f, rotationSpeed*direction.x, 0f));
         }
 
         public void Jump()
         {
-            if(_isGrounded)
+            if (_isGrounded)    
                 _body.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
 

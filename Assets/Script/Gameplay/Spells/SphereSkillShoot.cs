@@ -24,15 +24,19 @@ namespace Gameplay.Spells
 
         private void Update()
         {
-            if(spellData.speed > 0)
-                _body.AddForce(Vector3.forward * spellData.speed);
+            if (spellData.speed <= 0) return;
+            
+            transform.Translate(Vector3.forward * (spellData.speed * Time.deltaTime));
         }
 
-        protected override void OnCollisionEnter(Collision other)
+        protected override void OnTriggerEnter(Collider other)
         {
+            if (!other.gameObject.CompareTag("Enemy")) return;
+            
             var lifeComponent = other.gameObject.GetComponent<LifeComponent>();
             lifeComponent?.TakeDamage(spellData.value);
             DestroySpell();
+
         }
     }
 }

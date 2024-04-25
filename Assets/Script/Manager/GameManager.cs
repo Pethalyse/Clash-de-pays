@@ -1,5 +1,6 @@
 using Gameplay;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
 namespace Manager
@@ -17,6 +18,7 @@ namespace Manager
 
         private void Start()
         {
+            Cursor.visible = false;
             //StartNewGame();
         }
 
