@@ -19,5 +19,10 @@ namespace Gameplay.Spells
         {
             return spellData.manaCost;
         }
+
+        public Sprite GetSpellSprite()
+        {
+            return spellData.spellSprite;
+        }
     }
 }

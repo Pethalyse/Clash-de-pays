@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4669811, g: 1, b: 0.4698918, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -262,6 +262,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 1376120975355193890}
   text: {fileID: 1095159858651398252}
+  spellImg: {fileID: 426903916094273550}
+  defaultImg: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   index: 0
 --- !u!1 &8264518670343286460
 GameObject:

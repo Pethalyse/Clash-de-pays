@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nom: FireBall
   description: Throw a fireball forward
+  spellSprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   value: 30
   manaCost: 50
-  cooldown: 30
+  cooldown: 10
   duration: 5
   speed: 10
   radius: 0.5

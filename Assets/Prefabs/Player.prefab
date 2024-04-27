@@ -44,6 +44,8 @@ GameObject:
   - component: {fileID: 1572103763370219033}
   - component: {fileID: 7099563428730692416}
   - component: {fileID: 4196443844366716048}
+  - component: {fileID: 7497762078453444361}
+  - component: {fileID: 3266202076395349749}
   - component: {fileID: 3587565338723578993}
   - component: {fileID: 1566401935658771596}
   - component: {fileID: 3822818386988580563}
@@ -129,13 +131,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spellSpawn: {fileID: 2772757631761049479}
-  _currentIndexSpell: 0
   spells:
-  - {fileID: 8332091078266226936, guid: 1595453b26ebd1a439b4da384458f81f, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &7497762078453444361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2973100304137934598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db1ae5554f0446cfb9404a5bbe028dee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3266202076395349749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2973100304137934598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a41e85d11a7a4e76adf2c3c09faa66f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  element: 0
 --- !u!65 &3587565338723578993
 BoxCollider:
   m_ObjectHideFlags: 0

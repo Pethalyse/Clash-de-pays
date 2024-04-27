@@ -7,6 +7,7 @@ namespace Gameplay
     [RequireComponent(typeof(MovementComponent))]
     [RequireComponent(typeof(LifeComponent))]
     [RequireComponent(typeof(SpellComponent))]
+    [RequireComponent(typeof(SpellTreeComponent))]
     public class Player : MonoBehaviour
     {
         [SerializeField] private bool isHumanPlayer;

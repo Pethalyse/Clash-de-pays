@@ -8,6 +8,7 @@ namespace Data
     {
         public string nom;
         public string description;
+        public Sprite spellSprite;
 
         public int value;
         public int manaCost;

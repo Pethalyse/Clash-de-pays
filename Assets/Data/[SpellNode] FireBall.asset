@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3196dd0f80f4775a052b7a9c8becb02, type: 3}
+  m_Name: '[SpellNode] FireBall'
+  m_EditorClassIdentifier: 
+  parent: []
+  child: []
+  spell: {fileID: 8332091078266226936, guid: 1595453b26ebd1a439b4da384458f81f, type: 3}
+  level: 1
