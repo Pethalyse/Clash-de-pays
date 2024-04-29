@@ -8,6 +8,7 @@ namespace Gameplay
     [RequireComponent(typeof(LifeComponent))]
     [RequireComponent(typeof(SpellComponent))]
     [RequireComponent(typeof(SpellTreeComponent))]
+    [RequireComponent(typeof(XpComponent))]
     public class Player : MonoBehaviour
     {
         [SerializeField] private bool isHumanPlayer;
@@ -15,6 +16,7 @@ namespace Gameplay
         private LifeComponent _lifeComponent;
         private SpellComponent _spellComponent;
         private PlayerInputs _playerInputs;
+        private XpComponent _xpComponent;
 
         private InputAction _moveAction;
         private InputAction _lookAction;
@@ -27,6 +29,7 @@ namespace Gameplay
             _movementComponent = GetComponent<MovementComponent>();
             _spellComponent = GetComponent<SpellComponent>();
             _lifeComponent = GetComponent<LifeComponent>();
+            _xpComponent = GetComponent<XpComponent>();
             _playerInputs = new PlayerInputs();
         }
 
@@ -105,6 +108,9 @@ namespace Gameplay
         {
             if(isHumanPlayer)
                 _movementComponent.Jump();
+            
+            if(isHumanPlayer)
+                _xpComponent.LevelUp();
         }
         
         private void FireActionOnPerformed(InputAction.CallbackContext obj)
@@ -125,6 +131,11 @@ namespace Gameplay
         public MovementComponent GetMovementComponent()
         {
             return _movementComponent;
+        }
+
+        public XpComponent GetXpComponent()
+        {
+            return _xpComponent;
         }
     }
 }

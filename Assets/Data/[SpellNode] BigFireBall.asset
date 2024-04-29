@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3196dd0f80f4775a052b7a9c8becb02, type: 3}
-  m_Name: '[SpellNode] FireBall'
+  m_Name: '[SpellNode] BigFireBall'
   m_EditorClassIdentifier: 
   parent:
-  - {fileID: 11400000, guid: 83f6330a6f4804648af6d8943653bba4, type: 2}
-  - {fileID: 11400000, guid: 83f6330a6f4804648af6d8943653bba4, type: 2}
-  - {fileID: 11400000, guid: 83f6330a6f4804648af6d8943653bba4, type: 2}
+  - {fileID: 11400000}
+  - {fileID: 11400000}
+  - {fileID: 11400000}
   child: []
-  spell: {fileID: 8332091078266226936, guid: 1595453b26ebd1a439b4da384458f81f, type: 3}
-  level: 1
+  spell: {fileID: 8332091078266226936, guid: 90d7aac9ac322ee4ca017d64627d566d, type: 3}
+  level: 6

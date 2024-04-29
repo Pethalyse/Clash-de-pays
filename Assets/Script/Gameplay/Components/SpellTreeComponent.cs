@@ -1,16 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using Data;
 using Enum;
+using Gameplay.Spells;
 using Manager;
 using UnityEngine;
 
 namespace Gameplay.Components
 {
-    [RequireComponent(typeof(XpComponent))]
     [RequireComponent(typeof(SpellComponent))]
     public class SpellTreeComponent : MonoBehaviour
     {
-        private XpComponent _xpComponent;
         private SpellComponent _spellComponent;
         
         [SerializeField] private Elements element;
@@ -20,13 +20,18 @@ namespace Gameplay.Components
         private void Awake()
         {
             _spellComponent = GetComponent<SpellComponent>();
-            _xpComponent = GetComponent<XpComponent>();
         }
 
         private void Start()
         {
             _tree = SpellTreeManager.Instance.GetTreeByElement(element);
-            // _spellComponent.AddSpell(0 ,_tree.spell1.spell);
+        }
+
+        public List<Spell> GetUpgradeSpellFromLevel(int level)
+        {
+            var spellNode = _tree.GetNodeFromIndexModulo5(level % 5);
+            var listSpell = _tree.GetSpellOfLevelFromSpellNode(level, spellNode);
+            return listSpell;
         }
         
     }
