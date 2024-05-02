@@ -33,6 +33,11 @@ namespace Gameplay.Components
             var listSpell = _tree.GetSpellOfLevelFromSpellNode(level, spellNode);
             return listSpell;
         }
+
+        public SpellComponent GetSpellComponent()
+        {
+            return _spellComponent;
+        }
         
     }
 }

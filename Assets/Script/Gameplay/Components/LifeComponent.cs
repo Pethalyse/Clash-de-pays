@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Gameplay.Components
 {
     public class LifeComponent : MonoBehaviour
     {
         private int _lifeMax = 100;
+        private const float GrowValue = 11f;
         private int _life;
         private int Life
         {
@@ -40,6 +42,13 @@ namespace Gameplay.Components
         private void Die()
         {
             Destroy(gameObject);
+        }
+
+        public void LevelUp()
+        {
+            var add = Mathf.RoundToInt(GrowValue * _lifeMax / 100);
+            _lifeMax += add;
+            Life += add;
         }
     }
 }

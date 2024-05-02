@@ -71,6 +71,51 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UpgradeSpellChoice1"",
+                    ""type"": ""Button"",
+                    ""id"": ""a34ffd91-13fd-4eb6-9766-9205c180ffc7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UpgradeSpellChoice2"",
+                    ""type"": ""Button"",
+                    ""id"": ""c88683fb-0bcf-4e01-8ad1-a0fb33b13e10"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UpgradeSpellChoice3"",
+                    ""type"": ""Button"",
+                    ""id"": ""4454ac16-a4fd-407b-9b50-c761a8121688"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UpgradeSpellChoice4"",
+                    ""type"": ""Button"",
+                    ""id"": ""af630ac7-a016-4114-8264-e72c1eea332d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UpgradeSpellChoice5"",
+                    ""type"": ""Button"",
+                    ""id"": ""66f86f58-d5a2-46cd-b2a9-b8790c5c000f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -337,6 +382,171 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""CTRL + 1 [Keyboard]"",
+                    ""id"": ""4d089f93-3a53-4618-b757-5d69494b278f"",
+                    ""path"": ""ButtonWithOneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UpgradeSpellChoice1"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Modifier"",
+                    ""id"": ""b91f7a3c-6782-4862-bb0e-d2ec40d61b4e"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""UpgradeSpellChoice1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Button"",
+                    ""id"": ""6eabba1f-1e49-4029-9e73-df841613f353"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""UpgradeSpellChoice1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""CTRL + 2 [Keyboard]"",
+                    ""id"": ""63ecc390-7870-4f53-bb74-cab8fde0b5d5"",
+                    ""path"": ""ButtonWithOneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UpgradeSpellChoice2"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Modifier"",
+                    ""id"": ""30280609-5f4e-4454-ad63-60315c0681c1"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""UpgradeSpellChoice2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Button"",
+                    ""id"": ""c7d059bd-0750-4553-8af1-56aca77ab834"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""UpgradeSpellChoice2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""CTRL + 3 [Keyboard]"",
+                    ""id"": ""76819311-8b8f-44bb-9e50-b0ccc4881a0a"",
+                    ""path"": ""ButtonWithOneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UpgradeSpellChoice3"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Modifier"",
+                    ""id"": ""976d4084-21b5-4663-b634-7eded129a4e4"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""UpgradeSpellChoice3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Button"",
+                    ""id"": ""1546fcb3-f202-4019-8e81-1b41f22cd37e"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""UpgradeSpellChoice3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""CTRL + 4 [Keyboard]"",
+                    ""id"": ""0a8e5da8-2746-47e2-9649-b69c3b0a098a"",
+                    ""path"": ""ButtonWithOneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UpgradeSpellChoice4"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Modifier"",
+                    ""id"": ""4afd9734-260e-46e3-8855-4ffa3754b9eb"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""UpgradeSpellChoice4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Button"",
+                    ""id"": ""a2339170-36d5-4f8e-bc2d-5f8770b82e21"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""UpgradeSpellChoice4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""CTRL + 5 [Keyboard]"",
+                    ""id"": ""11fd3df8-1e1b-477a-8dfe-6493f1a0b092"",
+                    ""path"": ""ButtonWithOneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UpgradeSpellChoice5"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Modifier"",
+                    ""id"": ""642a04a4-911b-4ea3-a87a-6d4abd249540"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""UpgradeSpellChoice5"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Button"",
+                    ""id"": ""4eacd772-9e76-4fd5-8ffa-8ab93b6141c6"",
+                    ""path"": ""<Keyboard>/5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""UpgradeSpellChoice5"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -927,6 +1137,11 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
+        m_Player_UpgradeSpellChoice1 = m_Player.FindAction("UpgradeSpellChoice1", throwIfNotFound: true);
+        m_Player_UpgradeSpellChoice2 = m_Player.FindAction("UpgradeSpellChoice2", throwIfNotFound: true);
+        m_Player_UpgradeSpellChoice3 = m_Player.FindAction("UpgradeSpellChoice3", throwIfNotFound: true);
+        m_Player_UpgradeSpellChoice4 = m_Player.FindAction("UpgradeSpellChoice4", throwIfNotFound: true);
+        m_Player_UpgradeSpellChoice5 = m_Player.FindAction("UpgradeSpellChoice5", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1005,6 +1220,11 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Dash;
+    private readonly InputAction m_Player_UpgradeSpellChoice1;
+    private readonly InputAction m_Player_UpgradeSpellChoice2;
+    private readonly InputAction m_Player_UpgradeSpellChoice3;
+    private readonly InputAction m_Player_UpgradeSpellChoice4;
+    private readonly InputAction m_Player_UpgradeSpellChoice5;
     public struct PlayerActions
     {
         private @PlayerInputs m_Wrapper;
@@ -1014,6 +1234,11 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
+        public InputAction @UpgradeSpellChoice1 => m_Wrapper.m_Player_UpgradeSpellChoice1;
+        public InputAction @UpgradeSpellChoice2 => m_Wrapper.m_Player_UpgradeSpellChoice2;
+        public InputAction @UpgradeSpellChoice3 => m_Wrapper.m_Player_UpgradeSpellChoice3;
+        public InputAction @UpgradeSpellChoice4 => m_Wrapper.m_Player_UpgradeSpellChoice4;
+        public InputAction @UpgradeSpellChoice5 => m_Wrapper.m_Player_UpgradeSpellChoice5;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1038,6 +1263,21 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Dash.started += instance.OnDash;
             @Dash.performed += instance.OnDash;
             @Dash.canceled += instance.OnDash;
+            @UpgradeSpellChoice1.started += instance.OnUpgradeSpellChoice1;
+            @UpgradeSpellChoice1.performed += instance.OnUpgradeSpellChoice1;
+            @UpgradeSpellChoice1.canceled += instance.OnUpgradeSpellChoice1;
+            @UpgradeSpellChoice2.started += instance.OnUpgradeSpellChoice2;
+            @UpgradeSpellChoice2.performed += instance.OnUpgradeSpellChoice2;
+            @UpgradeSpellChoice2.canceled += instance.OnUpgradeSpellChoice2;
+            @UpgradeSpellChoice3.started += instance.OnUpgradeSpellChoice3;
+            @UpgradeSpellChoice3.performed += instance.OnUpgradeSpellChoice3;
+            @UpgradeSpellChoice3.canceled += instance.OnUpgradeSpellChoice3;
+            @UpgradeSpellChoice4.started += instance.OnUpgradeSpellChoice4;
+            @UpgradeSpellChoice4.performed += instance.OnUpgradeSpellChoice4;
+            @UpgradeSpellChoice4.canceled += instance.OnUpgradeSpellChoice4;
+            @UpgradeSpellChoice5.started += instance.OnUpgradeSpellChoice5;
+            @UpgradeSpellChoice5.performed += instance.OnUpgradeSpellChoice5;
+            @UpgradeSpellChoice5.canceled += instance.OnUpgradeSpellChoice5;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1057,6 +1297,21 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Dash.started -= instance.OnDash;
             @Dash.performed -= instance.OnDash;
             @Dash.canceled -= instance.OnDash;
+            @UpgradeSpellChoice1.started -= instance.OnUpgradeSpellChoice1;
+            @UpgradeSpellChoice1.performed -= instance.OnUpgradeSpellChoice1;
+            @UpgradeSpellChoice1.canceled -= instance.OnUpgradeSpellChoice1;
+            @UpgradeSpellChoice2.started -= instance.OnUpgradeSpellChoice2;
+            @UpgradeSpellChoice2.performed -= instance.OnUpgradeSpellChoice2;
+            @UpgradeSpellChoice2.canceled -= instance.OnUpgradeSpellChoice2;
+            @UpgradeSpellChoice3.started -= instance.OnUpgradeSpellChoice3;
+            @UpgradeSpellChoice3.performed -= instance.OnUpgradeSpellChoice3;
+            @UpgradeSpellChoice3.canceled -= instance.OnUpgradeSpellChoice3;
+            @UpgradeSpellChoice4.started -= instance.OnUpgradeSpellChoice4;
+            @UpgradeSpellChoice4.performed -= instance.OnUpgradeSpellChoice4;
+            @UpgradeSpellChoice4.canceled -= instance.OnUpgradeSpellChoice4;
+            @UpgradeSpellChoice5.started -= instance.OnUpgradeSpellChoice5;
+            @UpgradeSpellChoice5.performed -= instance.OnUpgradeSpellChoice5;
+            @UpgradeSpellChoice5.canceled -= instance.OnUpgradeSpellChoice5;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1244,6 +1499,11 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         void OnFire(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
+        void OnUpgradeSpellChoice1(InputAction.CallbackContext context);
+        void OnUpgradeSpellChoice2(InputAction.CallbackContext context);
+        void OnUpgradeSpellChoice3(InputAction.CallbackContext context);
+        void OnUpgradeSpellChoice4(InputAction.CallbackContext context);
+        void OnUpgradeSpellChoice5(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

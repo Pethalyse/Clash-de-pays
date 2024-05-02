@@ -11,6 +11,7 @@ namespace Gameplay.Components
     public class SpellComponent : MonoBehaviour
     {
         private int _manaMax = 100;
+        private const float GrowValue = 7.4f;
         private int _manaActual;
         private int _regenMana = 2;
         private float _timeManaRegen;
@@ -30,7 +31,9 @@ namespace Gameplay.Components
         [SerializeField] private Transform spellSpawn;
         
         private int _currentIndexSpell;
-        [SerializeField] private Spell[] spells = new Spell[5];
+        private readonly Spell[] _spells = new Spell[5];
+        private readonly bool[] _spellsSelected = new bool[5];
+        private readonly bool[] _spellsIsUpgrade = new bool[5];
         private Dictionary<int, float> _cooldownSpells;
 
         private void Start()
@@ -129,7 +132,7 @@ namespace Gameplay.Components
         {
             if (index is >= 0 and <= 4)
             {
-                return spells[index];
+                return _spells[index];
             }
 
             throw new Exception("Spell index not possible !");
@@ -146,7 +149,47 @@ namespace Gameplay.Components
 
         public void AddSpell(int index, Spell spell)
         {
-            spells[index] = spell;
+            _spells[index] = spell;
+        }
+
+        public bool GetSpellIsSelected(int i)
+        {
+            return _spellsSelected[i];
+        }
+        
+        public bool GetSpellIsUpgrade(int i)
+        {
+            return _spellsIsUpgrade[i];
+        }
+
+        public void ChangeSpellUpgrade(int i)
+        {
+            if (i > 4)
+                throw new Exception("Index spell upgrade not possible");
+            for (var l = 0; l < _spellsIsUpgrade.Length; l++)
+            {
+                _spellsIsUpgrade[l] = false;
+            }
+            if(i >= 0)
+                _spellsIsUpgrade[i] = true;
+        }
+        
+        public void ChangeSpellSelected(int i)
+        {
+            if (i is < 0 or > 4)
+                throw new Exception("Index spell selected not possible");
+            for (var l = 0; l < _spellsSelected.Length; l++)
+            {
+                _spellsSelected[l] = false;
+            }
+            _spellsSelected[i] = true;
+        }
+        
+        public void LevelUp()
+        {
+            var add = Mathf.RoundToInt(GrowValue * _manaMax / 100);
+            _manaMax += add;
+            ManaActual += add;
         }
     }
 }

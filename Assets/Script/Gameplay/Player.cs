@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Gameplay.Components;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -23,6 +24,12 @@ namespace Gameplay
         private InputAction _fireAction;
         private InputAction _jumpAction;
         private InputAction _dashAction;
+        
+        private InputAction _upgradeSpell1Action;
+        private InputAction _upgradeSpell2Action;
+        private InputAction _upgradeSpell3Action;
+        private InputAction _upgradeSpell4Action;
+        private InputAction _upgradeSpell5Action;
         
         private void Awake()
         {
@@ -51,7 +58,23 @@ namespace Gameplay
             
             _dashAction = _playerInputs.Player.Dash;
             _dashAction.Enable();
+
+            _upgradeSpell1Action = _playerInputs.Player.UpgradeSpellChoice1;
+            _upgradeSpell1Action.Enable();
+            
+            _upgradeSpell2Action = _playerInputs.Player.UpgradeSpellChoice2;
+            _upgradeSpell2Action.Enable();
+            
+            _upgradeSpell3Action = _playerInputs.Player.UpgradeSpellChoice3;
+            _upgradeSpell3Action.Enable();
+            
+            _upgradeSpell4Action = _playerInputs.Player.UpgradeSpellChoice4;
+            _upgradeSpell4Action.Enable();
+            
+            _upgradeSpell5Action = _playerInputs.Player.UpgradeSpellChoice5;
+            _upgradeSpell5Action.Enable();
         }
+
         private void OnDisable()
         {
             _moveAction.Disable();
@@ -136,6 +159,18 @@ namespace Gameplay
         public XpComponent GetXpComponent()
         {
             return _xpComponent;
+        }
+
+        public List<InputAction> GetInputActionsUpgradeSpells()
+        {
+            return new List<InputAction> 
+                { 
+                    _upgradeSpell1Action, 
+                    _upgradeSpell2Action,
+                    _upgradeSpell3Action, 
+                    _upgradeSpell4Action, 
+                    _upgradeSpell5Action 
+                };
         }
     }
 }

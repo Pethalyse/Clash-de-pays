@@ -2,6 +2,7 @@
 using Gameplay.Components;
 using Gameplay.Spells;
 using Manager;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +12,10 @@ namespace Env
     {
         private SpellComponent _playerSpellComponent;
         [SerializeField] private Image spellImg;
+        [SerializeField] private Image spellSelected;
+        [SerializeField] private Image spellUpgrade;
         [SerializeField] private Sprite defaultImg;
+        [SerializeField] private TextMeshProUGUI costText;
         [SerializeField] private int index;
         private void Start()
         {
@@ -22,6 +26,8 @@ namespace Env
         {
             UpdateCooldownFromIndex(index);
             ChangeSpellImage(index);
+            spellSelected.enabled = _playerSpellComponent.GetSpellIsSelected(index);
+            spellUpgrade.enabled = _playerSpellComponent.GetSpellIsUpgrade(index);
         }
 
         private void UpdateCooldownFromIndex(int i)
@@ -36,6 +42,7 @@ namespace Env
         {
             var spell = _playerSpellComponent.GetSpellFromIndex(i);
             spellImg.sprite = spell ? spell.GetSpellSprite() : defaultImg;
+            costText.text = spell ? $"{spell.GetManaCost()}" : $"";
         }
     }
 }

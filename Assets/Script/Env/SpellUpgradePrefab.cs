@@ -1,6 +1,7 @@
 ﻿using System;
 using Gameplay.Spells;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 namespace Env
@@ -12,6 +13,8 @@ namespace Env
 
         private Spell _spell;
         private bool _selected;
+        private int _level;
+
         public bool Selected
         {
             get => _selected;
@@ -19,14 +22,15 @@ namespace Env
             {
                 _selected = value;
                 if(_selected)
-                    OnSelectedChange?.Invoke(_spell);
+                    OnSelectedChange?.Invoke(_level, _spell);
             }
         }
-        public delegate void OnSelectedChangedDelegate(Spell spell);
+        public delegate void OnSelectedChangedDelegate(int level,Spell spell);
         public event OnSelectedChangedDelegate OnSelectedChange;
 
-        public void InitObject(Spell spell)
+        public void InitObject(int level, Spell spell)
         {
+            _level = level;
             _spell = spell;
 
             image.sprite = spell.GetSpellSprite();
@@ -36,6 +40,11 @@ namespace Env
         private void TaskOnClick()
         {
             Selected = true;
+        }
+
+        public void TaskOnClickPerformed(InputAction.CallbackContext obj)
+        {
+            TaskOnClick();
         }
     }
 }
