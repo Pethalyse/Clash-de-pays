@@ -17,7 +17,7 @@ namespace Gameplay.Components
             {
                 _level = value;
                 OnLevelChangedSpellTreeUpgrade?.Invoke(_level, _spellTreeComponent);
-                OnLevelChangedText?.Invoke(_level);
+                OnLevelChanged?.Invoke(_level);
             }
         }
         private int _xp;
@@ -33,10 +33,10 @@ namespace Gameplay.Components
         }
         
         public delegate void OnLevelChangedSpellTreeUpgradeDelegate(int level, SpellTreeComponent spellTreeComponent);
-        public delegate void OnLevelChangedTextDelegate(int level);
+        public delegate void OnLevelChangedDelegate(int level);
         public delegate void OnXpChangedTextDelegate(int xp, int xpBeforeLevelUp);
         public event OnLevelChangedSpellTreeUpgradeDelegate OnLevelChangedSpellTreeUpgrade;
-        public event OnLevelChangedTextDelegate OnLevelChangedText;
+        public event OnLevelChangedDelegate OnLevelChanged;
         public event OnXpChangedTextDelegate OnXpChangedText;
 
         private void Awake()

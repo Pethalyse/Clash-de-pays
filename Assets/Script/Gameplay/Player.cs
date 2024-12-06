@@ -5,19 +5,12 @@ using UnityEngine.InputSystem;
 
 namespace Gameplay
 {
-    [RequireComponent(typeof(MovementComponent))]
-    [RequireComponent(typeof(LifeComponent))]
-    [RequireComponent(typeof(SpellComponent))]
     [RequireComponent(typeof(SpellTreeComponent))]
-    [RequireComponent(typeof(XpComponent))]
-    public class Player : MonoBehaviour
+    public class Player : Character
     {
         [SerializeField] private bool isHumanPlayer;
-        private MovementComponent _movementComponent;
-        private LifeComponent _lifeComponent;
-        private SpellComponent _spellComponent;
+
         private PlayerInputs _playerInputs;
-        private XpComponent _xpComponent;
 
         private InputAction _moveAction;
         private InputAction _lookAction;
@@ -31,12 +24,9 @@ namespace Gameplay
         private InputAction _upgradeSpell4Action;
         private InputAction _upgradeSpell5Action;
         
-        private void Awake()
+        private new void Awake()
         {
-            _movementComponent = GetComponent<MovementComponent>();
-            _spellComponent = GetComponent<SpellComponent>();
-            _lifeComponent = GetComponent<LifeComponent>();
-            _xpComponent = GetComponent<XpComponent>();
+            base.Awake();
             _playerInputs = new PlayerInputs();
         }
 
@@ -84,6 +74,12 @@ namespace Gameplay
             _jumpAction.performed -= JumpActionOnPerformed;
             _jumpAction.Disable();
             _dashAction.Disable();
+            
+            _upgradeSpell1Action.Disable();
+            _upgradeSpell2Action.Disable();
+            _upgradeSpell3Action.Disable();
+            _upgradeSpell4Action.Disable();
+            _upgradeSpell5Action.Disable();
         }
 
         private void Update()
@@ -116,49 +112,30 @@ namespace Gameplay
             if (!isHumanPlayer) return;
             
                 var moveDir = _moveAction.ReadValue<Vector2>();
-                _movementComponent.Move(moveDir);
+                GetMovementComponent().Move(moveDir);
                 
                 var lookDir = _lookAction.ReadValue<Vector2>();
-                _movementComponent.Look(lookDir);
+                GetMovementComponent().Look(lookDir);
                 
                 //Clique avant puis bouger marche pas trop sur les cotés AVEC LA MANETTE
                 var dashDir = _dashAction.ReadValue<float>();
                 if(dashDir > 0 && moveDir != Vector2.zero)
-                    _movementComponent.Dash(moveDir);
+                    GetMovementComponent().Dash(moveDir);
         }
         
         private void JumpActionOnPerformed(InputAction.CallbackContext context)
         {
             if(isHumanPlayer)
-                _movementComponent.Jump();
+                GetMovementComponent().Jump();
             
             if(isHumanPlayer)
-                _xpComponent.LevelUp();
+                GetXpComponent().LevelUp();
         }
         
         private void FireActionOnPerformed(InputAction.CallbackContext obj)
         {
             if(isHumanPlayer)
-                _spellComponent.Cast();
-        }
-
-        
-        public LifeComponent GetLifeComponent()
-        {
-            return _lifeComponent;
-        }
-        public SpellComponent GetSpellComponent()
-        {
-            return _spellComponent;
-        }
-        public MovementComponent GetMovementComponent()
-        {
-            return _movementComponent;
-        }
-
-        public XpComponent GetXpComponent()
-        {
-            return _xpComponent;
+                GetSpellComponent().Cast();
         }
 
         public List<InputAction> GetInputActionsUpgradeSpells()

@@ -13,8 +13,6 @@ namespace Gameplay.Components
     {
         private SpellComponent _spellComponent;
         
-        [SerializeField] private Elements element;
-
         private SpellTreeData _tree;
 
         private void Awake()
@@ -24,7 +22,7 @@ namespace Gameplay.Components
 
         private void Start()
         {
-            _tree = SpellTreeManager.Instance.GetTreeByElement(element);
+            _tree = SpellTreeManager.Instance.GetTreeByElement(_spellComponent.GetElement());
         }
 
         public List<Spell> GetUpgradeSpellFromLevel(int level)

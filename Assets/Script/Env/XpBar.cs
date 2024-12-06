@@ -8,17 +8,17 @@ namespace Env
         [SerializeField] private TextMeshProUGUI textLevel;
         private void OnEnable()
         {
-            player.GetXpComponent().OnLevelChangedText += OnLevelChangedText ;
+            player.GetXpComponent().OnLevelChanged += OnLevelChanged ;
             player.GetXpComponent().OnXpChangedText += UpdateBarGUI ;
         }
         
         private void OnDisable()
         {
-            player.GetXpComponent().OnLevelChangedText -= OnLevelChangedText;
+            player.GetXpComponent().OnLevelChanged -= OnLevelChanged;
             player.GetXpComponent().OnXpChangedText -= UpdateBarGUI ;
         }
         
-        private void OnLevelChangedText(int level)
+        private void OnLevelChanged(int level)
         {
             textLevel.text = $"{level}";
         }

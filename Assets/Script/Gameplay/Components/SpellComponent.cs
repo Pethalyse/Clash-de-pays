@@ -10,6 +10,9 @@ namespace Gameplay.Components
 {
     public class SpellComponent : MonoBehaviour
     {
+        
+        [SerializeField] private Elements element;
+        
         private int _manaMax = 100;
         private const float GrowValue = 7.4f;
         private int _manaActual;
@@ -190,6 +193,11 @@ namespace Gameplay.Components
             var add = Mathf.RoundToInt(GrowValue * _manaMax / 100);
             _manaMax += add;
             ManaActual += add;
+        }
+
+        public Elements GetElement()
+        {
+            return element;
         }
     }
 }
